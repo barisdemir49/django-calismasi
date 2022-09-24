@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+<section class="section">
+   <div class="container">
+     <div class="row">
+            <div class="col-lg-8  mb-5 mb-lg-0">
+                 <article class="row mb-5">
+                  <div class="col-12 mx-auto">
+                    <h3>Bilgilerimi Güncelle</h3>
+                  </div>
+                </article>
+          </div>
+          <aside class="col-lg-4">
+              {% include "includes/rightbar.html" %}
+              {% include "includes/userpanelmenu.html" %}
+          </aside>
+      </div>
+    </div>
+</section> 
+{% endblock body %}

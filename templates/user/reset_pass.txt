@@ -1,0 +1,5 @@
+{% autoescape off %}
+Merhaba,
+Aşağıdaki linke tıklayarak unutmuş olduğunuz şifrenizi yenileyebilirsiniz.
+{{ protocol }}://{{ domain }}{% url 'users:resetpass' uidb64=uid token=token %}
+{% endautoescape %}

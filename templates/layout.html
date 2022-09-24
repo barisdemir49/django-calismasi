@@ -1,0 +1,21 @@
+
+<!doctype html>
+<html lang="tr">
+  {% include "includes/head.html" %}
+  <body>
+    {% include "includes/navbar.html" %}
+    <!-- Herhangi bir mesaj oluşturulmuşsa burada gösterilecek -->
+    {% if messages %}
+        {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+      <!-- dinamik içeriklerin gösterileceği block alanımız -->
+      {% block  body %}
+      {% endblock body %}
+
+
+    {% include "includes/footer.html" %}
+  </body>
+</html>

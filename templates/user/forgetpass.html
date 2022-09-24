@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+<section class="section">
+   <div class="container">
+      <div class="row">
+          <div class="col-lg-8  mb-5 mb-lg-0">
+               <h3>Şifremi Unuttum </h3>
+               <form method="post">
+                  {% csrf_token%}
+                  {{form|crispy}}
+                  <br/>
+                  <button type="submit" class="btn btn-success">Şifremi Yenile</button>
+                  <hr/>
+                  <a href="/user/register">Kayıt Ol</a> | 
+                  <a href="/user/login">Oturum Aç</a>
+               </form>
+            </div>
+            <aside class="col-lg-4">
+              {% include "includes/rightbar.html" %}
+          </aside>
+       </div>
+   </div>
+</section> 
+{% endblock body %}

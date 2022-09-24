@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+<section class="section">
+   <div class="container">
+     <div class="row">
+            <div class="col-lg-8  mb-5 mb-lg-0">
+                <article class="row mb-5">
+                <div class="col-12 mx-auto">
+                    <h3>{{data.title}}</h3>
+                        <ul class="list-inline post-meta mb-4">
+                            <li class="list-inline-item"><i class="ti-user mr-2"></i>{{data.author}}</li>
+                            <li class="list-inline-item">Date : {{data.createdDate}}</li>
+                        </ul>
+                    <p>{{data.content|safe}}</p>
+                    <div class="pull-right">
+                    <a href="{% url 'adverts:recourse' data.uuid %}" class="btn btn-success"> Başvuru Yap </a> 
+                    </div>
+                </div>
+                </article>
+            </div>
+            <aside class="col-lg-4">
+              {% include "includes/rightbar.html" %}
+            </aside>
+            
+     </div>
+   </div>
+</section>        
+{% endblock body %}

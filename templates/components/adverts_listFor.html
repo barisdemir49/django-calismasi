@@ -1,0 +1,31 @@
+{% for row in data %}
+    <article class="row mb-12">
+        <div class="col-12 mx-auto">
+            <h3><a class="post-title" href="/adverts/detail/{{row.slug}}">{{row.title}}</a></h3>
+                <ul class="list-inline post-meta mb-4">
+                    <li class="list-inline-item"><i class="ti-user mr-2"></i>{{row.author}}</li>
+                         <li class="list-inline-item">Date : {{row.createdDate}}</li>
+                </ul>
+            <p>{{row.content|truncatewords:30|safe}}</p> <a href="/adverts/detail/{{row.slug}}" class="btn btn-outline-primary">İncele...</a>
+        </div>
+    </article>    
+{% endfor %}
+<article class="clear row persent100 ">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if data.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{data.previous_page_number}}&q={{request.GET.q}}"><<</a></li>
+            {% endif %}   
+            {% for i in data.paginator.page_range %}
+                    {% if data.number == i %}
+                    <li class="page-item"><a class="page-link" href="?page={{i}}&q={{request.GET.q}}">{{i}}</a></li>
+                    {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}&q={{request.GET.q}}">{{ i }}</a></li>
+                    {% endif %}
+            {% endfor %}     
+            {% if data.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{data.next_page_number}}&q={{request.GET.q}}">>></a></li>
+            {% endif %} 
+        </ul>
+    </nav>
+</article>

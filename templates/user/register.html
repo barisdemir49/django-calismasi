@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+<section class="section">
+   <div class="container">
+      <div class="row">
+          <div class="col-lg-8  mb-5 mb-lg-0">
+            <h3>Üye Ol </h3>
+            <form method="post">
+               {% csrf_token %}
+               {{form|crispy}}
+               <br/>
+               <button type="submit" class="btn btn-success"> Kayıt Ol</button>
+               <a class="btn btn-default" href="/user/login">Oturum Aç</a>
+              </div>
+             </form> 
+             <aside class="col-lg-4">
+              {% include "includes/rightbar.html" %}
+             </aside>
+       </div>
+   </div>
+</section> 
+{% endblock body %}
